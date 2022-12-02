@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/time_bar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day 1 15:00"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/item_icon"
+            android:background="@android:color/transparent"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/pause_icon"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="125dp"
+        android:layout_gravity="center"
+        android:layout_weight="6"
+        android:background="@drawable/gredients_bg"
+        android:stretchColumns="1,2"
+        android:padding="10dp">
+
+        <TableRow>
+            <TextView
+                android:gravity="center"
+                android:text="테이블 번호" />
+            <TextView
+                android:gravity="center"
+                android:text="참을성" />
+            <TextView
+                android:gravity="center"
+                android:text="주문한 음식" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:gravity="center"
+                android:text="1" />
+            <TextView
+                android:id="@+id/left1"
+                android:gravity="center"
+                android:text="progressbar" />
+            <TextView
+                android:id="@+id/txtorder1"
+                android:gravity="center"
+                android:text="주문한 음식" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:gravity="center"
+                android:text="2" />
+            <TextView
+                android:id="@+id/left2"
+                android:gravity="center"
+                android:text="progressbar" />
+            <TextView
+                android:id="@+id/txtorder2"
+                android:gravity="center"
+                android:text="주문한 음식" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:gravity="center"
+                android:text="3" />
+            <TextView
+                android:id="@+id/left3"
+                android:gravity="center"
+                android:text="progressbar" />
+            <TextView
+                android:id="@+id/txtorder3"
+                android:gravity="center"
+                android:text="주문한 음식" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:gravity="center"
+                android:text="4" />
+            <TextView
+                android:id="@+id/left4"
+                android:gravity="center"
+                android:text="progressbar" />
+            <TextView
+                android:id="@+id/txtorder4"
+                android:gravity="center"
+                android:text="주문한 음식" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:gravity="center"
+                android:text="5" />
+            <TextView
+                android:id="@+id/left5"
+                android:gravity="center"
+                android:text="progressbar" />
+            <TextView
+                android:id="@+id/txtorder5"
+                android:gravity="center"
+                android:text="주문한 음식" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:gravity="center"
+                android:text="6" />
+            <TextView
+                android:id="@+id/left6"
+                android:gravity="center"
+                android:text="progressbar" />
+            <TextView
+                android:id="@+id/txtorder6"
+                android:gravity="center"
+                android:text="주문한 음식" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1">
+        <ProgressBar
+            android:id="@+id/progFood"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:max="100"
+            android:layout_gravity="center_horizontal|bottom"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:src="@drawable/table" />
+
+        <TextView
+            android:id="@+id/txtMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메뉴명"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/txtGredient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <ImageButton
+            android:id="@+id/btnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/base"
+            android:src="@drawable/btnstart"
+            android:background="@android:color/transparent" />
+        <TextView
+            android:id="@+id/base"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:layout_centerInParent="true"/>
+        <ImageButton
+            android:id="@+id/btnRestart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/base"
+            android:src="@drawable/btnrestart"
+            android:background="@android:color/transparent"/>
+        <ImageButton
+            android:id="@+id/btnRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/btnrecipe"
+            android:background="@android:color/transparent"/>
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_weight="7"
+        android:background="@drawable/gredients_bg"
+        android:padding="10dp">
+
+        <TableRow>
+            <ImageButton
+                android:id="@+id/ingre0"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn0"/>
+
+            <ImageButton
+                android:id="@+id/ingre1"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn1" />
+
+            <ImageButton
+                android:id="@+id/ingre2"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn2" />
+
+            <ImageButton
+                android:id="@+id/ingre3"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn3" />
+        </TableRow>
+
+        <TableRow>
+
+            <ImageButton
+                android:id="@+id/ingre4"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn4" />
+
+            <ImageButton
+                android:id="@+id/ingre5"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn5" />
+
+            <ImageButton
+                android:id="@+id/ingre6"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn6" />
+
+            <ImageButton
+                android:id="@+id/ingre7"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn7" />
+        </TableRow>
+
+        <TableRow>
+
+            <ImageButton
+                android:id="@+id/ingre8"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn8" />
+
+            <ImageButton
+                android:id="@+id/ingre9"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn9" />
+
+            <ImageButton
+                android:id="@+id/ingre10"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn10" />
+
+            <ImageButton
+                android:id="@+id/ingre11"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn11" />
+        </TableRow>
+
+        <TableRow>
+
+            <ImageButton
+                android:id="@+id/ingre12"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn12" />
+
+            <ImageButton
+                android:id="@+id/ingre13"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn13" />
+
+            <ImageButton
+                android:id="@+id/ingre14"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn14" />
+
+            <ImageButton
+                android:id="@+id/ingre15"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/btn15" />
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="2">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ratingbar_bg"
+            android:gravity="center">
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:isIndicator="true"
+                android:rating="3"
+                android:stepSize="0.5"
+                android:progressTint="#ffff00"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="점수 : 0000"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+</LinearLayout>
