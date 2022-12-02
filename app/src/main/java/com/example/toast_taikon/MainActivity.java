@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -20,7 +22,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView txtGredient, txtMenu;
+    TextView txtGredient;
     ImageButton btnRecipe, btnStart, btnRestart;
     ImageButton [] ingreButtons = new ImageButton[16];
     ProgressBar progFood;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                             R.id.ingre12, R.id.ingre13, R.id.ingre14, R.id.ingre15};
 
     int i;      //반복문을 위한 것
-    String ingre = "\n\n\n";   //TextView에 보여줄 텍스트 생성
+    String ingre = "";   //TextView에 보여줄 텍스트 생성
     String choiceMenu; //선택한 메뉴의 이름
     int[] ingredientList = new int[16]; //선택한 재료가 들어 있는지 여부
     //메뉴의 리스트 (menu) - (choicemenu와 ingredientList를 저장함) - 홀에서 필요한 정보
@@ -49,11 +51,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //ui title bar 삭제
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_main);
         setTitle("Toast_taikon");
 
         progFood = (ProgressBar) findViewById(R.id.progFood);
-        txtMenu = (TextView) findViewById(R.id.txtMenu);
         txtGredient = (TextView) findViewById(R.id.txtGredient);
         btnStart = (ImageButton) findViewById(R.id.btnStart);
         btnRestart = (ImageButton) findViewById(R.id.btnRestart);
@@ -117,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Toast.makeText(getApplicationContext(), choiceMenu+"의 조리가 완료되었습니다!", Toast.LENGTH_SHORT).show();
                 txtGredient.setText("");
-                txtMenu.setText("\n\n\n");
             }
         });
 
@@ -127,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //메뉴 객체를 어떻게 할지 정해야 함 //굳이 어떻게 할 필요 없나? 새로운 객체를 생성하면 되서
                 txtGredient.setText("");
-                txtMenu.setText("\n\n\n");
                 progFood.setProgress(0);
                 choiceMenu = "";//굳이 필요없음
                 ingredientList = new int[16];
@@ -158,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                txtMenu.setText(choiceMenu+'\n');
+                txtGredient.setText(choiceMenu+'\n');
                 progFood.setProgress(0);
                 Toast.makeText(getApplicationContext(), choiceMenu+"을 선택하였습니다!", Toast.LENGTH_SHORT).show();
             }
@@ -228,7 +231,12 @@ public class MainActivity extends AppCompatActivity {
         int score=0;
         int[] recipe = recipebook.get(menu);
         for(i=0; i<ingredientList.length; i++){
-            if(recipe[i]<ingredientList[i]) score+=10;
+            if(recipe[i]==0){
+                if(recipe[i]<ingredientList[i]) score-=10;
+            }
+            else{
+                if(recipe[i]<=ingredientList[i]) score+=10;
+            }
         }
         return score;
     }
